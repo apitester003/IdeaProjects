@@ -1,0 +1,13 @@
+/JavaTutorials/.idea/
+/JavaTutorials/target/
+/JavaTutorials/JavaTutorials.iml
+/JavaTutorials/src/main/resources
+
+/SeleniumTutorial/.idea/
+/SeleniumTutorial/SeleniumTutorial.iml
+/SeleniumTutorial/target
+/SeleniumTutorial/target/*
+
+
+
+
