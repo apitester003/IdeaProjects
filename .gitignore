@@ -12,14 +12,14 @@
 /automationframework/automationframework.iml
 /automationframework/target
 /automationframework/target/*
-/automationframework/src/main/resources/driver/phantomjs-64bitphantomjs-64bit
+/automationframework/src/main/resources/driver/phantomjs-64bitphantomjs-64bit/
 /automationframework/src/main/resources/driver/phantomjs-64bitphantomjs-64bit/*
 
 /JalaSeleniumAssignment/.idea/
 /JalaSeleniumAssignment/JalaSeleniumAssignment.iml
 /JalaSeleniumAssignment/target
 /JalaSeleniumAssignment/target/*
-/JalaSeleniumAssignment/src/main/resources/driver/phantomjs-64bitphantomjs-64bit
+/JalaSeleniumAssignment/src/main/resources/driver/phantomjs-64bitphantomjs-64bit/
 /JalaSeleniumAssignment/src/main/resources/driver/phantomjs-64bitphantomjs-64bit/*
 
 
