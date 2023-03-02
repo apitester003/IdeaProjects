@@ -8,6 +8,11 @@
 /SeleniumTutorial/target
 /SeleniumTutorial/target/*
 
+/automationframework/.idea/
+/automationframework/automationframework.iml
+/automationframework
+
+
 
 
 
