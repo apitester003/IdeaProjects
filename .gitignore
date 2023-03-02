@@ -10,7 +10,8 @@
 
 /automationframework/.idea/
 /automationframework/automationframework.iml
-/automationframework
+/automationframework/target
+/automationframework/target/*
 
 
 
