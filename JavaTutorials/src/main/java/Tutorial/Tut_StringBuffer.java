@@ -1,12 +1,14 @@
-public class Tut_StringBuilder {
+package Tutorial;
+
+public class Tut_StringBuffer {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();                   //Creates an empty String Builder of 16 character capacity
+        StringBuffer sb = new StringBuffer();                   //Creates an empty String Buffer of 16 character capacity
         System.out.println(sb.capacity());      //16
 
-        StringBuilder sb1 = new StringBuilder("Hello Sam!!");     //Initializes a new String Builder with a new String value
+        StringBuffer sb1 = new StringBuffer("Hello Sam!!");     //Initializes a new String Buffer with a new String value
         System.out.println(sb1.capacity());     //27
 
-        StringBuilder sb2 = new StringBuilder(1000);      //Assigning default capacity of the String Builder
+        StringBuffer sb2 = new StringBuffer(1000);      //Assigning default capacity of the String Buffer
         System.out.println(sb2.capacity());     //1000
 
         //1- Append method
@@ -31,18 +33,18 @@ public class Tut_StringBuilder {
         System.out.println(sb.deleteCharAt(4)); //Deletes the character at the given index
 
         //6 - Equals method
-        StringBuilder sb3 = new StringBuilder("Hello Sam");
-        StringBuilder sb4 = new StringBuilder("Hello Sam");
-        System.out.println(sb3.equals(sb4));    //false as both the String Builders refer to different objects
+        StringBuffer sb3 = new StringBuffer("Hello Sam");
+        StringBuffer sb4 = new StringBuffer("Hello Sam");
+        System.out.println(sb3.equals(sb4));    //false as both the String Buffers refer to different objects
 
-        StringBuilder sb5 = sb3.append(" Sahoo");
-        System.out.println(sb3.equals(sb5));    //true as both the String Builders refer to same objects, even though the values are different
+        StringBuffer sb5 = sb3.append(" Sahoo");
+        System.out.println(sb3.equals(sb5));    //true as both the String Buffers refer to same objects, even though the values are different
 
         //7 - IndexOf method
-        System.out.println(sb.indexOf("Samarendra"));   //5 , it's the starting index of the mentioned string in the String Builder object, it gives the first occurrence of the mentioned String.
+        System.out.println(sb.indexOf("Samarendra"));   //5 , it's the starting index of the mentioned string in the String buffer object, it gives the first occurrence of the mentioned String.
 
         //8 - LastIndexOf method
-        System.out.println(sb.lastIndexOf("Samarendra")); //5 , it's the starting index of the mentioned string in the String Builder object, it gives the last occurrence of the mentioned String.
+        System.out.println(sb.lastIndexOf("Samarendra")); //5 , it's the starting index of the mentioned string in the String buffer object, it gives the last occurrence of the mentioned String.
 
         //9 - Insert method
         System.out.println(sb.insert(4, "Pratap")); //Inserts the mentioned string at the given index
@@ -51,7 +53,7 @@ public class Tut_StringBuilder {
         System.out.println(sb.replace(11, 21, "Sahoo")); //Replaces the characters in the given range 11<= characters < 21 with the mentioned string
 
         //11 - Reverse method
-        System.out.println(sb.reverse());       //Reverses the String Builder contents
+        System.out.println(sb.reverse());       //Reverses the String Buffer contents
         sb.reverse();
 
         //12 - Subsequence method
@@ -61,7 +63,7 @@ public class Tut_StringBuilder {
         System.out.println(sb.substring(3, 6)); //Outputs the characters in the given range 3<= characters < 6 in the given string
 
         //14 - ToString method
-        System.out.println(sb.toString());      //Converts the given StringBuilder into a string
+        System.out.println(sb.toString());      //Converts the given stringbuffer into a string
 
         //15 - SetCharAt method
         sb.setCharAt(9 , 'P');        //Updates the character in the given string at the mentioned index
@@ -70,6 +72,6 @@ public class Tut_StringBuilder {
         //16 - TrimToSize
         System.out.println(sb.capacity());
         sb.trimToSize();
-        System.out.println(sb.capacity());      //Updates the capacity of the StringBuilder to the length of the string. This reduces occupied memory. Here the capacity reduced from 43 to 16
+        System.out.println(sb.capacity());      //Updates the capacity of the StringBuffer to the length of the string. This reduces occupied memory. Here the capacity reduced from 43 to 16
     }
 }

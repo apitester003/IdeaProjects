@@ -1,3 +1,5 @@
+package Tutorial;
+
 public class Tut_ThreeDimensionalArray {
     public static void main(String[] args) {
         //Jagged Three Dimensional Array

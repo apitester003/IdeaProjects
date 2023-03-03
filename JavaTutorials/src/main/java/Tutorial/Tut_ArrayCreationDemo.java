@@ -1,3 +1,5 @@
+package Tutorial;
+
 public class Tut_ArrayCreationDemo {
     public static void main(String[] args) {
         int[] a = new int[0];   //Valid Declaration
