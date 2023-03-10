@@ -1,7 +1,16 @@
 package miscellaneous;
 
+
+
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Set;
 
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,18 +18,20 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class CookieAndBrowserProfileManagement {
+public class CookieManagement {
 	private static String projPath = System.getProperty("user.dir");
 	private static WebDriver driver;
+	private static File file;
+	private static String fileName = "test_excel.xlsx";
 	
 	@BeforeTest
 	public static void initializeTest(){
 		System.setProperty("webdriver.gecko.driver", projPath + "/src/main/resources/driver/geckodriver");
 		driver = new FirefoxDriver();
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php");
+		driver.get("http://localhost");
 	}
 	
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1)
 	public static void getAllCookies(){
 		Set<Cookie> allCookies = driver.manage().getCookies();
 		for(Cookie ck : allCookies){
@@ -62,9 +73,41 @@ public class CookieAndBrowserProfileManagement {
 		System.out.println(ck.size());
 	}
 	
-	@Test(priority=6)
+	@Test(priority=6,enabled = false)
 	public static void importCookiesFromExcel(){
-		
+		try{
+			Workbook passwordCookieListWorkbook;
+			String cookieName = null, cookiePassword = null;
+
+			//Create an object of File class to open xlsx file
+			file = new File(projPath + "/src/test/java/main/resources/includes/" + fileName);
+			FileInputStream fileInputStream = new FileInputStream(file);
+
+			//Find the file extension by splitting file name in substring  and getting only extension name
+			String fileExtensionName = fileName.substring(fileName.indexOf('.'));
+
+			//For .xls
+			/*passwordCookieListWorkbook = new HSSFWorkbook(fileInputStream);
+			Sheet passwordSheet = passwordCookieListWorkbook.getSheet("Sheet1");*/
+
+			//For .xlsx
+			passwordCookieListWorkbook = new XSSFWorkbook(fileInputStream);
+			Sheet passwordSheet = passwordCookieListWorkbook.getSheet("Sheet1");
+
+			//Find number of rows in excel file
+			int rowCount = passwordSheet.getLastRowNum() - passwordSheet.getFirstRowNum();
+			//loop through the rows
+			for(int i = 1; i < rowCount + 1; i++){
+				Row row = passwordSheet.getRow(i);
+				cookieName = row.getCell(0).getStringCellValue();
+				cookiePassword = row.getCell(1).getStringCellValue();
+				driver.manage().addCookie(new Cookie(cookieName, cookiePassword));
+			}
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	@AfterTest
