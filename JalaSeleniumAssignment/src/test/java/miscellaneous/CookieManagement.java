@@ -31,7 +31,7 @@ public class CookieManagement {
 		driver.get("http://localhost");
 	}
 	
-	@Test(priority = 1)
+	@Test(priority = 1, enabled = false)
 	public static void getAllCookies(){
 		Set<Cookie> allCookies = driver.manage().getCookies();
 		for(Cookie ck : allCookies){
@@ -73,7 +73,7 @@ public class CookieManagement {
 		System.out.println(ck.size());
 	}
 	
-	@Test(priority=6,enabled = false)
+	/*@Test(priority=6,enabled = false)
 	public static void importCookiesFromExcel(){
 		try{
 			Workbook passwordCookieListWorkbook;
@@ -87,8 +87,8 @@ public class CookieManagement {
 			String fileExtensionName = fileName.substring(fileName.indexOf('.'));
 
 			//For .xls
-			/*passwordCookieListWorkbook = new HSSFWorkbook(fileInputStream);
-			Sheet passwordSheet = passwordCookieListWorkbook.getSheet("Sheet1");*/
+			//passwordCookieListWorkbook = new HSSFWorkbook(fileInputStream);
+			//Sheet passwordSheet = passwordCookieListWorkbook.getSheet("Sheet1");
 
 			//For .xlsx
 			passwordCookieListWorkbook = new XSSFWorkbook(fileInputStream);
@@ -108,7 +108,7 @@ public class CookieManagement {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 	
 	@AfterTest
 	public static void finishTest(){
