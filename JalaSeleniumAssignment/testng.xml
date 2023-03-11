@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Demo">
+	<parameter name="username" value="training@jalaacademy.com" />
+	<parameter name="password" value="jobprogram"/>
+    <test name="TestCaseDependency">
+         <classes>
+             <class name="testNGDemo.MakeOneTestCaseDependentOnAnother"/>
+          </classes>
+     </test> <!-- Test -->
+</suite> <!-- Suite -->

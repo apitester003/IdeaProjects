@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Groups Demo">
+    <test name="TestNGGroups">
+    	<groups>
+    		<!-- Method 1 -->
+    		<!--<run>
+    			<include name="sanity"></include>
+    			<exclude name="regression"></exclude>
+    		</run>-->
+    		
+    		<!-- Method 2 -->
+    		<!--<define name="Regression1">
+    			<include name="regression"></include>
+    			<include name="smoke"></include>
+    		</define>
+    		<run>
+    			<include name="Regression1"></include>
+    		</run>-->
+    		<!-- Method 3 - Running tests on Class Level, it overrides the grouping in the method level -->
+    		<run>
+    			<include name="AllClassTests"></include>
+    		</run>   		
+    	</groups>
+         <classes>
+             <class name="testNGDemo.TestNGGroupDemo"/>
+          </classes>
+     </test> <!-- Test -->
+</suite> <!-- Suite -->
