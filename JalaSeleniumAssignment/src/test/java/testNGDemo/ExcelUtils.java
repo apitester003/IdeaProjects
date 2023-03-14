@@ -29,23 +29,39 @@ public class ExcelUtils {
         }
     }
 
-    public static void getRowCount() {
+    public static int getRowCount() {
         //Get Row Count
         rowCount = sheet.getPhysicalNumberOfRows();
-        System.out.println("The row count is: " + rowCount);
+        //System.out.println("The row count is: " + rowCount);
+        return rowCount;
     }
 
-        public static void getCellData(){
+    public static int getColCount(){
+        int colCount = sheet.getRow(0).getPhysicalNumberOfCells();
+        return colCount;
+    }
+
+    public static Object[][] getCellData(){
+        String cellValue = "";
+        Object[][] data = new Object[10][10];
         if(rowCount > 0){
             for(int count = 1; count < rowCount; count++){
-                cellCount = sheet.getRow(count).getPhysicalNumberOfCells();
+                cellCount = getColCount();
                 if(cellCount > 0){
                     for(int ctr = 0; ctr < cellCount; ctr++){
-                        String cellValue = sheet.getRow(count).getCell(ctr).getStringCellValue();
+                        cellValue = getCellDataString(count, ctr);
                         System.out.println(cellValue);
+                        data[count][ctr] = cellValue;
                     }
                 }
             }
         }
+            return data;
+    }
+
+    public static String getCellDataString(int row, int col){
+        String cellValue = "";
+        cellValue = sheet.getRow(row).getCell(col).getStringCellValue();
+        return cellValue;
     }
 }

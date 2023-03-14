@@ -14,6 +14,6 @@ public class ExcelUtilsDemo {
 
         ExcelUtils eu = new ExcelUtils(excelPath, sheetName);
         eu.getRowCount();
-        eu.getCellData();
+        Object[][] cellData = eu.getCellData();
     }
 }
